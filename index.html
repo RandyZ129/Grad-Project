@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Compressor</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
+    <script src="index.js"> </script>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <td><button onclick="start()">Start</button></td>
+          <td><span id="music-gain-text" class="control-label"><label for="music-gain">Min music volume<br>(10%)</label></span></td>
+          <td>
+            <div class="control">
+              <input type="range" id="music-gain" name="music-gain" min="0.0" max="1.0" step="0.01" value="0.1" oninput="updateMusicGain(event)"/>
+            </div>
+          </td>
+          <td><span class="control-label"><label for="music-options">Music choice:</label></span></td>
+          <td>
+            <select name="options" id="music-options">
+              <option value="souvenir.wav">Souvenir de Florence - Tchaikovsky</option>
+              <option value="danish.wav">The Peat Dance - Danish String Quartet</option>
+              <option value="eclogue.wav">Eclogue - Gerald Finzi</option>
+              <option value="bigcountry.wav">Big Country - Uncommon Ritual</option>
+            </select>
+          </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><span id="tone-gain-text" class="control-label"><label for="tone-gain">Tone volume<br>(0%)</label></span></td>
+        <td>
+          <div class="control">
+            <input type="range" id="tone-gain" name="tone-gain" min="0.0" max="1.0" step="0.01" value="0.0" oninput="updateToneGain(event)"/>
+          </div>
+        </td>
+        <td><span id="tone-pitch-text" class="control-label"><label for="tone-pitch">Tone pitch<br>(A4)</label></span></td>
+        <td>
+          <div class="control">
+            <input type="range" id="tone-pitch" name="tone-pitch" min="0" max="88" step="1" value="48" oninput="updateTonePitch(event)"/>
+          </div>
+        </td>
+        <td>
+          <select name="tones" id="tone-tones">
+            <option value="sine">Sine</option>
+            <option value="square">Square</option>
+            <option value="sawtooth">Sawtooth</option>
+            <option value="triangle">Triangle</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><span id="white-gain-text" class="control-label"><label for="white-noise-gain">White noise volume<br>(0%)</label></span></td>
+        <td>
+          <div class="control">
+            <input type="range" id="white-noise-gain" name="white-noise-gain" min="0.0" max="1.0" step="0.01" value="0" oninput="updateWhiteNoiseGain(event)"/>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><span id="chatter-gain-text" class="control-label"><label for="chatter-gain">Chatter volume<br>(0%)</label></span></td>
+        <td>
+          <div class="control">
+            <input type="range" id="chatter-gain" name="chatter-gain" min="0.0" max="1.0" step="0.01" value="0" oninput="updateChatterGain(event)"/>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><span id="bg-avg-size-text" class="control-label"><label for="bg-avg-window">Background averaging size<br>(10)</label></span></td>
+        <td>
+          <div class="control">
+            <input type="range" id="bg-avg-window" name="bg-avg-window" min="1" max="50" step="1" value="10" oninput="updateBgAveragingSize(event)"/>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><span id="mus-avg-size-text" class="control-label"><label for="mus-avg-window">Music averaging size<br>(10)</label></span></td>
+        <td>
+          <div class="control">
+            <input type="range" id="mus-avg-window" name="mus-avg-window" min="1" max="50" step="1" value="10" oninput="updateMusAveragingSize(event)"/>
+          </div>
+        </td>
+      </tr>
+    </table>
+    <div>
+      <div id="music-amps" style="height: 370px; width:100%;"></div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+body {
+    max-width: max-content;
+    margin: auto;
+}
+
+table {
+    border-spacing: 10px;
+}
+
+label, select {
+    min-width: 90px;
+    font-size: 30px;
+    display: inline-block;
+}
+
+input {
+    width: 155px;
+    height: 40px;
+    text-align: center;
+    font-size: 30px;
+}
+
+button {
+    height: 45px;
+    font-size: 25px;
+    background-color: lightgray;
+    border-width: 2px;
+    border-radius: 7px;
+}
+
+button:hover {
+    background-color: limegreen;
+}
